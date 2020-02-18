@@ -1,0 +1,56 @@
+import math
+
+def find_prime(start = 1,finish = 2):
+    global Prime 
+    Prime = []
+    for find in range(start,finish+1,1):
+        for i in range(2,find,1):
+            if find%i == 0:
+                break
+        else:
+            Prime.append(find)
+    return Prime
+
+def find_fibo(start = 1,finish = 2):
+    global Fibo 
+    Fibo = []
+    a,b = start,start
+    while a < finish:
+        yield a
+        a,b = b,a+b
+        Fibo.append(a,b)
+    return Fibo
+
+def switch_grade(direction,standard,*grade):
+    global Grade
+    Grade = []
+    if direction == 'int':  
+        for a in grade:
+            hundred = a/standard*100
+            Grade.append(int(hundred))
+        return Grade
+    else:
+        for a in grade:
+            hundred = a/standard*100
+            Grade.append(hundred)
+        return Grade
+
+def switch_length(standard1,standard2,length):
+    centimetre = {'inch':0.393701,'feet':0.0328084,'mile':10,'yard':91.44,'kilometre':100000,'metre':100}
+    metre = {'inch':0.0254,'feet':0.03048}
+
+def area_circle(direction,radius = 1,centralangle = 360,roundmany = 0,):
+    Pi = 31415926535897932
+    times = 0
+    while True:
+        if int(centralangle/360) == centralangle/360:
+            break
+        else:
+            centralangle = centralangle*10
+            times = times+1
+    area = Pi*radius*radius*centralangle/times/10000000000000000
+    if direction == 'int':
+        area = int(area)
+    else:
+        area = round(area,roundmany)
+    return area        
