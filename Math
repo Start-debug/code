@@ -39,18 +39,42 @@ def switch_length(standard1,standard2,length):
     centimetre = {'inch':0.393701,'feet':0.0328084,'mile':10,'yard':91.44,'kilometre':100000,'metre':100}
     metre = {'inch':0.0254,'feet':0.03048}
 
-def area_circle(direction,radius = 1,centralangle = 360,roundmany = 0,):
-    Pi = 31415926535897932
+def switch_intfloat(x):
     times = 0
     while True:
-        if int(centralangle/360) == centralangle/360:
+        if int(x) == x:
             break
         else:
-            centralangle = centralangle*10
+            x = x*10
             times = times+1
+    y = {'x':x,'times':times}
+    return y
+
+def check_zero(x):
+    if x == 0:
+        x = x+1
+    else:
+        pass
+    return x
+
+def area_circle(direction,radius = 1,centralangle = 360,roundmany = 0,):
+    Pi = 31415926535897932
+    a = switch_intfloat(centralangle)
+    centralangle = check_zero(a['x'])
+    times = check_zero(a['times'])
     area = Pi*radius*radius*centralangle/times/10000000000000000
     if direction == 'int':
         area = int(area)
     else:
         area = round(area,roundmany)
     return area        
+
+def area_rectangle(width = 1,height = 1):
+    a = switch_intfloat(width)
+    b = switch_intfloat(height)
+    width = check_zero(a['x'])
+    height = check_zero(b['x'])
+    times1 = check_zero(a['times'])
+    times2 = check_zero(b['times'])
+    area = width*height/times1/times2
+    return area
