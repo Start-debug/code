@@ -1,0 +1,9 @@
+def cut_info():
+    print('=========================')
+
+def repetition(text,x = 1):
+    print((text)*x)
+
+def taketurn(*info):
+    for l in info:
+        print(l)
